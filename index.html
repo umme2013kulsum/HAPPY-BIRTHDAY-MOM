@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mom ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #fff5f7;
+  color: #4a2c3a;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+h1 { font-size: 52px; line-height: 1.1; }
+h2 { font-size: 36px; margin-bottom: 20px; }
+p { font-size: 19px; line-height: 1.5; }
+
+.pink { background: #ffdde8; }
+.white { background: #fff; }
+.purple { background: #f3e8ff; }
+.yellow { background: #fff7cc; }
+.blue { background: #dbeafe; }
+.green { background: #dcfce7; }
+
+.btn {
+  background: #ff4d7a;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255,77,122,.4);
+  margin-top: 20px;
+}
+
+.btn:active { transform: scale(.95); }
+
+.balloons {
+  font-size: 60px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  width: 90%;
+  max-width: 380px;
+  margin: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #ffd1dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  border: 5px solid white;
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+  margin: 15px;
+}
+
+#cake {
+  font-size: 110px;
+  cursor: pointer;
+}
+
+.candles { font-size: 40px; }
+
+.heart {
+  font-size: 70px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.timeline {
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
+}
+
+.timeline div {
+  background: white;
+  padding: 16px 20px;
+  border-radius: 16px;
+  margin: 12px 0;
+  border-left: 6px solid #ff4d7a;
+}
+
+.scroll {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: .6;
+  animation: float 1.5s infinite;
+}
+
+.letter {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+/* ==============================
+   PHOTO GALLERY
+============================== */
+
+.memory-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 900px;
+  margin: 25px auto;
+}
+
+.memory-card {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  border: 5px solid white;
+  border-radius: 18px;
+  background: #fff0f5;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.memory-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* MOM 1 - COMPLETE PHOTO */
+
+.memory-card img.first-memory {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #fff0f5;
+}
+
+/* MOM 2 - COMPLETE PHOTO */
+
+.memory-card img.second-memory {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #fff0f5;
+}
+
+/* MOM 3, 4, 5 AND 6 */
+
+.memory-card img:not(.first-memory):not(.second-memory) {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* QUIZ */
+
+.quiz-opt {
+  background: white;
+  border: 2px solid #ff4d7a;
+  padding: 12px 20px;
+  border-radius: 30px;
+  margin: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 90%;
+  max-width: 300px;
+}
+
+/* CONFETTI */
+
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* MOBILE */
+
+@media(max-width:650px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 29px; }
+  p { font-size: 17px; }
+
+  .memory-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .memory-card { height: 170px; }
+
+  .card { font-size: 18px; }
+  .btn { font-size: 17px; }
+}
+
+@media(max-width:350px) {
+  .memory-gallery {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+  }
+
+  .memory-card { height: 210px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<!-- 1. HERO -->
+<section class="pink">
+
+  <div class="balloons">🎈 🎈 🎈</div>
+  <div class="photo">👩‍❤️‍👩</div>
+
+  <h1>Happy Birthday<br>Mom! 🎂</h1>
+  <p>Today is all about you.</p>
+
+  <button class="btn"
+    onclick="startConfetti();document.getElementById('s2').scrollIntoView({behavior:'smooth'})">
+    Tap For Surprise 🎁
+  </button>
+
+  <div class="scroll">Scroll Down ↓</div>
+
+</section>
+
+<!-- 2. SHORT LOVE -->
+<section class="white" id="s2">
+
+  <h2>You Are...</h2>
+
+  <div class="grid">
+    <div class="card">💖 My First Best Friend</div>
+    <div class="card">🏠 My Home</div>
+    <div class="card">☀️ My Sunshine</div>
+    <div class="card">🍲 My Favourite Chef</div>
+    <div class="card">🦸 My Super Scientist</div>
+    <div class="card">🌙 My Peace</div>
+  </div>
+
+</section>
+
+<!-- 3. WHY -->
+<section class="purple">
+
+  <h2>3 Reasons I Love You</h2>
+
+  <div class="card">1. You always listen.</div>
+  <div class="card">2. You always care.</div>
+  <div class="card">3. You are simply YOU.</div>
+
+  <p style="margin-top:15px">That's enough. ❤️</p>
+
+</section>
+
+<!-- 4. OUR MEMORIES -->
+<section class="blue">
+
+  <h2>Our Memories 📸</h2>
+  <p>Every photo = Love</p>
+
+  <div class="memory-gallery">
+
+    <!-- MOM 1 -->
+    <div class="memory-card">
+      <img
+        class="first-memory"
+        src="mom 1.jpeg"
+        alt="Mom memory 1">
+    </div>
+
+    <!-- MOM 2 -->
+    <div class="memory-card">
+      <img
+        class="second-memory"
+        src="mom 2.jpeg"
+        alt="Mom memory 2">
+    </div>
+
+    <!-- MOM 3 -->
+    <div class="memory-card">
+      <img
+        src="mom 3.jpeg"
+        alt="Mom memory 3">
+    </div>
+
+    <!-- MOM 4 -->
+    <div class="memory-card">
+      <img
+        src="mom 4.jpeg"
+        alt="Mom memory 4">
+    </div>
+
+    <!-- MOM 5 -->
+    <div class="memory-card">
+      <img
+        src="mom 5.jpeg"
+        alt="Mom memory 5">
+    </div>
+
+    <!-- MOM 6 -->
+    <div class="memory-card">
+      <img
+        src="mom 6.jpeg"
+        alt="Mom memory 6">
+    </div>
+
+  </div>
+
+  <p>Best moments, with my best person. ❤️</p>
+
+</section>
+
+<!-- 5. CAKE GAME -->
+<section class="yellow">
+
+  <h2>Make A Wish, Mom!</h2>
+  <p>Tap the cake to blow the candles</p>
+
+  <div id="cake" onclick="blow()">🎂</div>
+  <div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+
+  <p id="wish" style="font-weight:bold;margin-top:10px">
+    Candles are ON
+  </p>
+
+  <button class="btn" onclick="blow()">Blow Candles 💨</button>
+
+</section>
+
+<!-- 6. QUIZ -->
+<section class="green">
+
+  <h2>Quick Quiz For Mom 😜</h2>
+  <p>Who is the best child in the world?</p>
+
+  <div class="quiz-opt" onclick="quiz(this)">A) Me 😎</div>
+  <div class="quiz-opt" onclick="quiz(this)">B) Me ❤️</div>
+  <div class="quiz-opt" onclick="quiz(this)">C) Me 🥰</div>
+
+  <p id="quizAns" style="font-weight:bold;margin-top:12px"></p>
+
+</section>
+
+<!-- 7. HEART GAME -->
+<section class="pink">
+
+  <h2>How Much Do I Love You?</h2>
+  <p>Tap the heart 10 times</p>
+
+  <div class="heart" id="heart" onclick="love()">❤️</div>
+
+  <p id="count">0 / 10</p>
+  <p id="loveMsg"></p>
+
+</section>
+
+<!-- 8. COMPLIMENT MACHINE -->
+<section class="white">
+
+  <h2>Compliment Machine 💌</h2>
+  <p>Tap for a compliment</p>
+
+  <div class="card" id="compCard">
+    You are amazing, Mom!
+  </div>
+
+  <button class="btn" onclick="newComp()">
+    Next Compliment ➡️
+  </button>
+
+</section>
+
+<!-- 9. TIMELINE -->
+<section class="purple">
+
+  <h2>Our Story</h2>
+
+  <div class="timeline">
+    <div><b>👶 Then:</b><br>You held my hand.</div>
+    <div><b>🧒 Now:</b><br>You still hold my hand.</div>
+    <div><b>👵 Always:</b><br>I will hold yours.</div>
+  </div>
+
+</section>
+
+<!-- 10. PROMISE -->
+<section class="blue">
+
+  <h2>My Promise</h2>
+
+  <div class="card">I will make you proud.</div>
+  <div class="card">I will always call you.</div>
+  <div class="card">I will always love you.</div>
+
+</section>
+
+<!-- 11. GIFT -->
+<section class="yellow">
+
+  <h2>One Last Gift 🎁</h2>
+  <p>Tap the gift</p>
+
+  <div style="font-size:100px;cursor:pointer"
+       onclick="openGift()" id="gift">🎁</div>
+
+  <p id="giftMsg" style="font-weight:bold;margin-top:10px">
+    What's inside?
+  </p>
+
+</section>
+
+<!-- 12. LETTER -->
+<section class="pink">
+
+  <div class="letter">
+
+    <h2>For You, Mom</h2>
+    <br>
+
+    <p>Dear Mom,</p>
+    <br>
+
+    <p>Thank you for everything.</p>
+    <p>Thank you for your love.</p>
+    <p>Thank you for being you.</p>
+
+    <br>
+
+    <p><b>Happy Birthday!</b></p>
+    <p>— Your Child ❤️</p>
+
+  </div>
+
+  <button class="btn" onclick="startConfetti()">
+    Celebrate Again 🎉
+  </button>
+
+</section>
+
+<!-- 13. FINAL -->
+<section style="background:#ff4d7a;color:white">
+
+  <h1 style="font-size:60px">
+    I Love You<br>Mom ❤️
+  </h1>
+
+  <p style="color:white;margin-top:15px">
+    Today. Tomorrow. Forever.
+  </p>
+
+  <p style="margin-top:30px;font-size:16px">
+    Made with love, only for you.
+  </p>
+
+</section>
+
+<script>
+
+// CONFETTI ANIMATION
+
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let parts = [];
+let animationRunning = false;
+
+function startConfetti() {
+
+  parts = [];
+
+  let colors = [
+    '#ff4d7a',
+    '#ffd166',
+    '#6bcB77',
+    '#4d96ff',
+    '#b980f0'
+  ];
+
+  for(let i = 0; i < 150; i++) {
+
+    parts.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 300,
+      w: 8 + Math.random() * 8,
+      h: 8 + Math.random() * 8,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      vy: 2 + Math.random() * 4,
+      vx: -2 + Math.random() * 4,
+      r: Math.random() * 360
+    });
+
+  }
+
+  if(!animationRunning) animate();
+}
+
+function animate() {
+
+  animationRunning = true;
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  parts.forEach(p => {
+
+    p.y += p.vy;
+    p.x += p.vx;
+    p.r += 5;
+
+    ctx.save();
+    ctx.translate(p.x,p.y);
+    ctx.rotate(p.r * Math.PI / 180);
+    ctx.fillStyle = p.c;
+    ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+    ctx.restore();
+
+  });
+
+  parts = parts.filter(p => p.y < canvas.height + 20);
+
+  if(parts.length > 0) {
+    requestAnimationFrame(animate);
+  } else {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    animationRunning = false;
+  }
+
+}
+
+window.addEventListener('load', () => {
+  setTimeout(startConfetti,500);
+});
+
+
+// CAKE GAME
+
+let blown = false;
+
+function blow() {
+
+  if(blown) return;
+
+  blown = true;
+
+  document.getElementById('candles').innerText = '✨ ✨ ✨';
+
+  document.getElementById('wish').innerText =
+    'Your Wish Will Come True! ✨';
+
+  document.getElementById('cake').innerText = '🍰';
+
+  startConfetti();
+
+}
+
+
+// HEART GAME
+
+let c = 0;
+
+function love() {
+
+  if(c >= 10) return;
+
+  c++;
+
+  document.getElementById('count').innerText = c + ' / 10';
+
+  let h = document.getElementById('heart');
+
+  h.style.transform =
+    'scale(' + (1 + c * 0.08) + ')';
+
+  if(c >= 10) {
+
+    document.getElementById('loveMsg').innerText =
+      'Infinite Love! ❤️❤️❤️';
+
+    startConfetti();
+
+  }
+
+}
+
+
+// QUIZ
+
+function quiz(el) {
+
+  document.getElementById('quizAns').innerText =
+    'Correct! You know me so well 😍';
+
+  startConfetti();
+
+}
+
+
+// COMPLIMENT MACHINE
+
+let comps = [
+  "You have the best smile! 😊",
+  "You make everything better! ✨",
+  "You are my favourite person! 💖",
+  "You are beautiful inside & out! 🌸",
+  "Best Mom in the whole world! 🏆",
+  "Your hugs fix everything! 🤗"
+];
+
+let ci = 0;
+
+function newComp() {
+
+  ci = (ci + 1) % comps.length;
+
+  document.getElementById('compCard').innerText =
+    comps[ci];
+
+}
+
+
+// GIFT
+
+function openGift() {
+
+  document.getElementById('gift').innerText = '💖';
+
+  document.getElementById('giftMsg').innerText =
+    'My whole heart, for you. Forever!';
+
+  startConfetti();
+
+}
+
+</script>
+
+</body>
+</html>
